@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MaterialModule } from './shared/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '../../node_modules/@angular/forms';
+
+const routes: Routes = [
+  { path: 'tobuymanager', loadChildren: './tobuymanager/tobuymanager.module#TobuymanagerModule' },
+  { path: '**', redirectTo: 'tobuymanager' }
+];
 
 @NgModule({
   declarations: [
@@ -14,8 +17,7 @@ import { FormsModule } from '../../node_modules/@angular/forms';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FormsModule
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
