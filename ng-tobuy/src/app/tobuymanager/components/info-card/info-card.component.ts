@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-infocard',
-  templateUrl: './infocard.component.html',
-  styleUrls: ['./infocard.component.css']
+  templateUrl: './info-card.component.html',
+  styleUrls: ['./info-card.component.css']
 })
-export class InfocardComponent implements OnInit {
+export class InfoCardComponent implements OnInit {
 
   weekDayNow: string = createWeekDay();
 

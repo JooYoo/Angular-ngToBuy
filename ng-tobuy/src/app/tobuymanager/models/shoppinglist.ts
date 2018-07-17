@@ -1,5 +1,5 @@
 import { Tobuy } from "./tobuy";
-import { WeekDay } from "../../../../node_modules/@angular/common";
+import { WeekDay } from "@angular/common";
 
 export class Shoppinglist {
     id: number;

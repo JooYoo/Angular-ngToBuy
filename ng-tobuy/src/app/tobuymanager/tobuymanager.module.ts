@@ -11,7 +11,8 @@ import { TobuymanagerAppComponent } from './tobuymanager-app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { InfocardComponent } from './components/infocard/infocard.component';
+import { InfoCardComponent } from './components/info-card/info-card.component';
+import { TobuyInputComponent } from './components/tobuy-input/tobuy-input.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,6 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TobuymanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent, InfocardComponent]
+  declarations: [TobuymanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent, InfoCardComponent, TobuyInputComponent]
 })
 export class TobuymanagerModule { }
