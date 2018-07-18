@@ -1,9 +1,9 @@
 <mat-selection-list #tobuys>
-  <mat-list-option *ngFor="let tobuy of displayTobuys">
+  <mat-list-option checkboxPosition="before" *ngFor="let tobuy of displayTobuys">
     {{tobuy.text}}
   </mat-list-option>
 </mat-selection-list>
 
-<p>
-  Options selected: {{tobuys.selectedOptions.selected.length}}
-</p>
+<!-- <p>
+  Finished: {{tobuys.selectedOptions.selected.length}} / {{displayTobuys.length}}
+</p> -->
