@@ -13,6 +13,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { InfoCardComponent } from './components/info-card/info-card.component';
 import { TobuyInputComponent } from './components/tobuy-input/tobuy-input.component';
+import { TobuyserviceService } from './services/tobuyservice.service';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
     FlexLayoutModule,
     FormsModule,
     RouterModule.forChild(routes)
+  ],
+  providers:[
+    TobuyserviceService
   ],
   declarations: [TobuymanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent, InfoCardComponent, TobuyInputComponent]
 })

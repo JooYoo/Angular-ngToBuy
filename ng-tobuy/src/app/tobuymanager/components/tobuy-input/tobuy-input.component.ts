@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TobuyInputComponent implements OnInit {
 
-  constructor() { }
+  public todoText: string;
+
+  constructor() { 
+    this.todoText = '';
+  }
 
   ngOnInit() {
+  }
+
+  public addTodo():void{
+    console.log("add:" + this.todoText);
+    this.todoText = '';
   }
 
 }

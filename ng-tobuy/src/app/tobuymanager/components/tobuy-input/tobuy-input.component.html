@@ -1,7 +1,8 @@
 
-  <form autocomplete="off" class="example-form">
+  <!-- <form autocomplete="off" class="example-form"> -->
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="to buy......" value="">
+      <input autocomplete="off" matInput type="text" [(ngModel)]="todoText"  value={{todoText}}  placeholder="to buy......">
     </mat-form-field>
-  </form>
+    <button mat-button (click)="addTodo()">add</button>
+  <!-- </form> -->
 
