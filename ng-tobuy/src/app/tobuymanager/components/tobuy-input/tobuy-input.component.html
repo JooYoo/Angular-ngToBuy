@@ -1,8 +1,10 @@
+<!-- <form autocomplete="off" class="tobuyInput-form"> -->
+<div>
+  <mat-form-field class="tobuyInput-full-width">
+    <input (keydown)="onKeydown($event)" autocomplete="off" matInput type="text" [(ngModel)]="todoText" value={{todoText}} placeholder="to buy......">
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+  <!-- <button mat-button (click)="addTodo()">add</button> -->
+</div>
 
-  <!-- <form autocomplete="off" class="example-form"> -->
-    <mat-form-field class="example-full-width">
-      <input autocomplete="off" matInput type="text" [(ngModel)]="todoText"  value={{todoText}}  placeholder="to buy......">
-    </mat-form-field>
-    <button mat-button (click)="addTodo()">add</button>
-  <!-- </form> -->
-
+<!-- </form> -->

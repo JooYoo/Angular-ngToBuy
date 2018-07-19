@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'tobuy-input',
   templateUrl: './tobuy-input.component.html',
-  styleUrls: ['./tobuy-input.component.css']
+  styleUrls: ['./tobuy-input.component.scss']
 })
 export class TobuyInputComponent implements OnInit {
 
@@ -20,5 +20,14 @@ export class TobuyInputComponent implements OnInit {
     console.log("add:" + this.todoText);
     this.todoText = '';
   }
+
+  // Enter is Submit
+   onKeydown(event) {
+    if (event.key === "Enter") {
+      this.addTodo();
+    }
+  }
+
+
 
 }
