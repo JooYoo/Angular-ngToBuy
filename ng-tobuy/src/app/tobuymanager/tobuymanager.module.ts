@@ -16,6 +16,8 @@ import { TobuyInputComponent } from './components/tobuy-input/tobuy-input.compon
 import { TobuyserviceService } from './services/tobuyservice.service';
 import { TobuyListComponent } from './components/tobuy-list/tobuy-list.component';
 
+import { NgSwipeToDeleteModule } from 'ng-swipe-to-delete';
+
 const routes: Routes = [
   {
     path: '', component: TobuymanagerAppComponent,
@@ -32,6 +34,7 @@ const routes: Routes = [
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
+    NgSwipeToDeleteModule,
     RouterModule.forChild(routes)
   ],
   providers:[
