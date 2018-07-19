@@ -20,14 +20,12 @@ export class TobuyserviceService {
     this.nextId = this.tobuys.length + 1;
   }
 
-
   /*
    * get all tobuy 
    */
   public getAllTobuy():Tobuy[] {
     return this.tobuys;
   }
-
 
   /*
    * add new item to list
@@ -52,7 +50,5 @@ export class TobuyserviceService {
   public isChecked(tobuy: Tobuy): void {
     this.tobuys.find(x=>x.id == tobuy.id).isDone == !this.isCheck;
   }
-
-
 
 }

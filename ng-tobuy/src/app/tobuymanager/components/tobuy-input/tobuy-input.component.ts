@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Tobuy } from '../../models/tobuy';
+import { TobuyserviceService } from '../../services/tobuyservice.service';
 
 @Component({
   selector: 'tobuy-input',
@@ -7,16 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TobuyInputComponent implements OnInit {
 
+  private _toBuyService: TobuyserviceService;
   public todoText: string;
-
-  constructor() { 
-    this.todoText = '';
+  public displayTobuys:Tobuy[];
+  
+  constructor(tobuyservice:TobuyserviceService) { 
+    this._toBuyService = tobuyservice
   }
 
   ngOnInit() {
+    this.displayTobuys = this._toBuyService.getAllTobuy();
   }
 
   public addTodo():void{
+    this._toBuyService.addTobuy(this.todoText);
     console.log("add:" + this.todoText);
     this.todoText = '';
   }
