@@ -33,7 +33,4 @@ export class TobuyInputComponent implements OnInit {
       this.addTodo();
     }
   }
-
-
-
 }
