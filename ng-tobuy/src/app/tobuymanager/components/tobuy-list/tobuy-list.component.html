@@ -1,18 +1,16 @@
-<mat-selection-list #tobuys>
+<!-- <mat-selection-list #tobuys>
 
   <div *ngFor="let tobuy of displayTobuys">
     <mat-list-option checkboxPosition="before">
       {{tobuy.text}}
-      
     </mat-list-option>
   </div>
-</mat-selection-list>
+</mat-selection-list> -->
 
 <mat-list>
-  <div >
-     
+  <div>
     <mat-list-item *ngFor="let tobuy of displayTobuys">
-        <mat-checkbox >{{tobuy.text}}</mat-checkbox>
+      <mat-checkbox>{{tobuy.text}}</mat-checkbox>
       <button id="removeBtn" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
         <mat-icon>close</mat-icon>
       </button>
@@ -24,9 +22,7 @@
 
 
 
-<!-- <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-    <mat-icon>close</mat-icon>
-  </button> -->
+
 
 <!-- <p>
   Finished: {{tobuys.selectedOptions.selected.length}} / {{displayTobuys.length}}
