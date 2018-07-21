@@ -17,7 +17,7 @@ export class TobuyserviceService {
       new Tobuy(2, "cake", false)
     ]
 
-    this.nextId = this.tobuys.length + 1;
+    this.nextId = 3;
   }
 
   /*
@@ -39,9 +39,8 @@ export class TobuyserviceService {
    * remove item:
    * only display the items which are not match the id
    */
-  public removeItem(tobuy: Tobuy):void {
-   var newTobuys = this.tobuys.filter(x=>x.id !=  tobuy.id);
-   this.tobuys=newTobuys;
+  public removeItem(id: number):void {
+    this.tobuys= this.tobuys.filter(x=>x.id != id);
   }
 
   /*

@@ -15,6 +15,7 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
 import { TobuyInputComponent } from './components/tobuy-input/tobuy-input.component';
 import { TobuyserviceService } from './services/tobuyservice.service';
 import { TobuyListComponent } from './components/tobuy-list/tobuy-list.component';
+import { TobuyItemComponent } from './components/tobuy-item/tobuy-item.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,6 @@ const routes: Routes = [
   providers:[
     TobuyserviceService
   ],
-  declarations: [TobuymanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent, InfoCardComponent, TobuyInputComponent, TobuyListComponent]
+  declarations: [TobuymanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent, InfoCardComponent, TobuyInputComponent, TobuyListComponent, TobuyItemComponent]
 })
 export class TobuymanagerModule { }

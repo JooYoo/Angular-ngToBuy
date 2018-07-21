@@ -8,7 +8,12 @@
 </div> -->
 
 <mat-form-field class="tobuyInput-full-width">
-    <input (keydown)="onKeydown($event)" autocomplete="off" matInput type="text" [(ngModel)]="todoText" value={{todoText}} placeholder="to buy......">
+    <input (keydown)="onKeydown($event)" 
+           autocomplete="off" 
+           matInput type="text" 
+           [(ngModel)]="todoText" 
+           value={{todoText}} 
+           placeholder="to buy......">
     <button mat-button *ngIf="todoText" matSuffix mat-icon-button aria-label="Clear" (click)="todoText=''">
       <mat-icon>close</mat-icon>
     </button>
