@@ -13,7 +13,7 @@ export class TobuyserviceService {
   constructor() {
     this.tobuys = [
       new Tobuy(0, "apple", false),
-      new Tobuy(1, "banana", false),
+      new Tobuy(1, "banana", true),
       new Tobuy(2, "cake", false)
     ]
 

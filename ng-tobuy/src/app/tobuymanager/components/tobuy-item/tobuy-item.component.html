@@ -1,4 +1,4 @@
-<mat-checkbox>{{tobuy.text}}</mat-checkbox>
+<mat-checkbox [checked]="tobuy.isDone">{{tobuy.text}}</mat-checkbox>
 <button id="removeBtn" 
         (click)="removeTobuy()"
         mat-button 
