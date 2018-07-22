@@ -3,10 +3,11 @@
     <mat-toolbar color="primary">
       Week Days
     </mat-toolbar>
-    <mat-list role="list">
-      <mat-list-item role="listitem">Monday</mat-list-item>
+    <mat-list *ngFor="let shoppinglist of getShoppinglists">
+        <app-sidenav-item [shoppinglist]="shoppinglist"></app-sidenav-item>
+      <!-- <mat-list-item role="listitem">Monday</mat-list-item>
       <mat-list-item role="listitem">Tuesday</mat-list-item>
-      <mat-list-item role="listitem">Wednesday</mat-list-item>
+      <mat-list-item role="listitem">Wednesday</mat-list-item> -->
     </mat-list>
   </mat-sidenav>
 

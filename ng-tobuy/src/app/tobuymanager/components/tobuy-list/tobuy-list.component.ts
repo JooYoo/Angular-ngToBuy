@@ -18,7 +18,6 @@ export class TobuyListComponent implements OnInit {
   }
 
   ngOnInit() {
-    
   }
 
 }
