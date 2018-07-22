@@ -23,7 +23,7 @@ export class TobuyserviceService {
   /*
    * get all tobuy 
    */
-  public getAllTobuy():Tobuy[] {
+  public getAllTobuy(): Tobuy[] {
     return this.tobuys;
   }
 
@@ -39,15 +39,24 @@ export class TobuyserviceService {
    * remove item:
    * only display the items which are not match the id
    */
-  public removeItem(id: number):void {
-    this.tobuys= this.tobuys.filter(x=>x.id != id);
+  public removeItem(id: number): void {
+    this.tobuys = this.tobuys.filter(x => x.id != id);
   }
 
   /*
    * check the 
    */
   public isChecked(tobuy: Tobuy): void {
-    this.tobuys.find(x=>x.id == tobuy.id).isDone == !this.isCheck;
+    this.tobuys.find(x => x.id == tobuy.id).isDone == !this.isCheck;
   }
 
+  // get the weekDay
+  public getWeekDayNow(): string {
+    var date = new Date();
+
+    const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+      'Thursday', 'Friday', 'Saturday'];
+
+    return dayOfWeek[date.getDay()];
+  }
 }

@@ -9,10 +9,8 @@ import { TobuyserviceService } from '../../services/tobuyservice.service';
   styleUrls: ['./tobuy-list.component.scss']
 })
 export class TobuyListComponent implements OnInit {
- 
 
-  constructor(private tobuyservice:TobuyserviceService) {}
-   
+  constructor(private tobuyservice: TobuyserviceService) { }
 
   ngOnInit() {
   }
