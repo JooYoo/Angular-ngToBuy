@@ -14,15 +14,23 @@ export class TobuyInputComponent implements OnInit {
   public displayTobuys:Tobuy[];
   
   constructor(tobuyservice:TobuyserviceService) { 
-    this._toBuyService = tobuyservice
+    //tobuyservice.getAllTobuy();
+    this._toBuyService = tobuyservice;
   }
 
   ngOnInit() {
-    this.displayTobuys = this._toBuyService.getAllTobuy();
+    //this.displayTobuys = this._toBuyService.getAllTobuy();
   }
 
+  // public addTodo():void{
+  //   this._toBuyService.addTobuy(this.todoText);
+  //   console.log("add:" + this.todoText);
+  //   this.todoText = '';
+  // }
+
+  //todo: ??? how to pass value from component to another one 
   public addTodo():void{
-    this._toBuyService.addTobuy(this.todoText);
+    this._toBuyService.addTobuyToList(this.todoText, this._toBuyService.getWeekDayNow());
     console.log("add:" + this.todoText);
     this.todoText = '';
   }

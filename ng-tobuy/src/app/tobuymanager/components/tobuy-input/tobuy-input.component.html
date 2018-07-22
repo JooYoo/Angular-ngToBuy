@@ -14,6 +14,7 @@
            [(ngModel)]="todoText" 
            value={{todoText}} 
            placeholder="to buy......">
+           
     <button mat-button *ngIf="todoText" matSuffix mat-icon-button aria-label="Clear" (click)="todoText=''">
       <mat-icon>close</mat-icon>
     </button>

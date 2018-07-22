@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tobuy } from '../../models/tobuy';
 import { TobuyserviceService } from '../../services/tobuyservice.service';
+import { Shoppinglist } from '../../models/shoppinglist';
 
 
 @Component({
@@ -10,9 +11,14 @@ import { TobuyserviceService } from '../../services/tobuyservice.service';
 })
 export class TobuyListComponent implements OnInit {
 
-  constructor(private tobuyservice: TobuyserviceService) { }
+  private shoppingList: Shoppinglist;
+
+  constructor(private tobuyservice: TobuyserviceService) { 
+    this.shoppingList = tobuyservice.getCurrentList();
+  }
 
   ngOnInit() {
+    
   }
 
 }

@@ -9,7 +9,8 @@
 
 <mat-list>
   <div>
-    <mat-list-item *ngFor="let tobuy of tobuyservice.getAllTobuy()">
+    <!-- <mat-list-item *ngFor="let tobuy of shoppingList.toBuys"> -->
+    <mat-list-item *ngFor="let tobuy of shoppingList.toBuys">
       <app-tobuy-item [tobuy]="tobuy"></app-tobuy-item>
     </mat-list-item>
   </div>

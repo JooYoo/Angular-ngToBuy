@@ -14,18 +14,21 @@ export class TobuyserviceService {
 
   constructor() {
 
+   
+
     this.tobuys = [
       new Tobuy(0, "apple", false),
       new Tobuy(1, "banana", true),
       new Tobuy(2, "cake", false)
     ]
-
     this.nextId = 3;
+
+    this.mockShoppinglists();
   }
 
-  // get all shoppinglists
-  public getShoppinglists(): Shoppinglist[] {
-    
+  // create mock shoppinglists
+  public mockShoppinglists(): Shoppinglist[] {
+
     var mondayTobuys = [
       new Tobuy(0, "apple", false),
     ]
@@ -81,20 +84,26 @@ export class TobuyserviceService {
 
     return this.shoppinglists;
   }
-
-
-  /*
-   * get all tobuy 
-   */
+  // get all tobuy 
   public getAllTobuy(): Tobuy[] {
     return this.tobuys;
   }
+  // get current shoppinglist
+  public getCurrentList():Shoppinglist{
+    var currentWeekDay = this.getWeekDayNow();
+    return this.shoppinglists.find(x=>x.weekDay == currentWeekDay);
+  }
 
-  /*
-   * add new item to list
-   */
+
+  //add new item to list
   public addTobuy(text: string): void {
     this.tobuys.push(new Tobuy(this.nextId, text, false));
+    this.nextId++;
+  }
+  // add new item to list of shoppinglists
+  public addTobuyToList(text: string, currentDay: string): void {
+    var currentTobuys = this.shoppinglists.find(x => x.weekDay == currentDay);
+    currentTobuys.toBuys.push(new Tobuy(this.nextId, text, false));
     this.nextId++;
   }
 
