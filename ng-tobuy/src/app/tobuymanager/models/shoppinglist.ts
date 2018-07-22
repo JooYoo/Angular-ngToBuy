@@ -1,8 +1,13 @@
 import { Tobuy } from "./tobuy";
-import { WeekDay } from "@angular/common";
 
 export class Shoppinglist {
     id: number;
     toBuys: Tobuy[] = [];
-    weekDay: WeekDay;
+    weekDay: string;
+
+    constructor(id:number,toBuys:Tobuy[],weekDay:string){
+        this.id=id;
+        this.toBuys=toBuys;
+        this.weekDay=weekDay;
+    }
 }
