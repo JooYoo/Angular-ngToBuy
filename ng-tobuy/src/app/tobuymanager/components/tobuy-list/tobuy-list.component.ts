@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Tobuy } from '../../models/tobuy';
 import { TobuyserviceService } from '../../services/tobuyservice.service';
 import { Shoppinglist } from '../../models/shoppinglist';
+import { ActivatedRoute } from '../../../../../node_modules/@angular/router';
 
 
 @Component({
@@ -11,13 +12,20 @@ import { Shoppinglist } from '../../models/shoppinglist';
 })
 export class TobuyListComponent implements OnInit {
 
-  private shoppingList: Shoppinglist;
+  shoppingList: Shoppinglist;
 
-  constructor(private tobuyservice: TobuyserviceService) { 
+  constructor(
+    private route: ActivatedRoute,
+    private tobuyservice: TobuyserviceService) { 
     this.shoppingList = tobuyservice.getCurrentList();
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params=>{
+      const weekDay=params['weekDay'];
+      this.shoppingList = this.tobuyservice.shoppinglistByWeekday(weekDay);
+      console.log("In main-content:)");
+    })
   }
 
 }

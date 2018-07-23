@@ -7,14 +7,13 @@ import { Shoppinglist } from '../models/shoppinglist';
 })
 export class TobuyserviceService {
 
-  private shoppinglists: Shoppinglist[];
+  public shoppinglists: Shoppinglist[];
+  public displaylist: Shoppinglist;
   private tobuys: Tobuy[];
   private nextId: number;
   private isCheck = false;
 
   constructor() {
-
-   
 
     this.tobuys = [
       new Tobuy(0, "apple", false),
@@ -93,6 +92,15 @@ export class TobuyserviceService {
     var currentWeekDay = this.getWeekDayNow();
     return this.shoppinglists.find(x=>x.weekDay == currentWeekDay);
   }
+  // get target shoppinglist
+  public getTargetShoppingList(targetWeekDay:string):Shoppinglist{
+    return this.shoppinglists.find(x=>x.weekDay == targetWeekDay);
+  }
+
+  shoppinglistByWeekday(weekday:string){
+    return this.shoppinglists.find(x=>x.weekDay== weekday);
+  }
+  
 
 
   //add new item to list

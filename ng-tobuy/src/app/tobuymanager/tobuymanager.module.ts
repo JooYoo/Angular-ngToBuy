@@ -22,6 +22,7 @@ const routes: Routes = [
   {
     path: '', component: TobuymanagerAppComponent,
     children: [
+      { path: ':weekDay', component: MainContentComponent },
       { path: '', component: MainContentComponent }
     ]
   },
