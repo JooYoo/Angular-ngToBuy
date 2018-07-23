@@ -6,7 +6,6 @@ import { MaterialModule } from '../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 
-
 import { TobuymanagerAppComponent } from './tobuymanager-app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
@@ -16,7 +15,6 @@ import { TobuyInputComponent } from './components/tobuy-input/tobuy-input.compon
 import { TobuyserviceService } from './services/tobuyservice.service';
 import { TobuyListComponent } from './components/tobuy-list/tobuy-list.component';
 import { TobuyItemComponent } from './components/tobuy-item/tobuy-item.component';
-import { SidenavItemComponent } from './components/sidenav-item/sidenav-item.component';
 
 const routes: Routes = [
   {
@@ -24,8 +22,7 @@ const routes: Routes = [
     children: [
       { path: ':weekDay', component: MainContentComponent },
       { path: '', component: MainContentComponent }
-    ]
-  },
+    ]},
   { path: '**', redirectTo: '' }
 ];
 
@@ -37,9 +34,9 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes)
   ],
-  providers:[
+  providers: [
     TobuyserviceService
   ],
-  declarations: [TobuymanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent, InfoCardComponent, TobuyInputComponent, TobuyListComponent, TobuyItemComponent, SidenavItemComponent]
+  declarations: [TobuymanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent, InfoCardComponent, TobuyInputComponent, TobuyListComponent, TobuyItemComponent]
 })
 export class TobuymanagerModule { }

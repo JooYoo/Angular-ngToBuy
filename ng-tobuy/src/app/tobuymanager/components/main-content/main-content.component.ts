@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TobuyserviceService } from '../../services/tobuyservice.service';
+import { ActivatedRoute } from '@angular/router';
+import { Shoppinglist } from '../../models/shoppinglist';
 
 @Component({
   selector: 'app-main-content',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainContentComponent implements OnInit {
 
-  constructor() { }
+  shoppinglist:Shoppinglist;
+  constructor(
+    private route: ActivatedRoute,
+    private service: TobuyserviceService) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      let weekDay = params['weekDay'];
+      if (!weekDay) weekDay = 'Monday';
+      this.shoppinglist = null;
+    });
+
+      // this.service.shoppinglists.subscribe(users => {
+      //   if (users.length == 0) return;
+
+      //   setTimeout(() => {
+      //     this.shoppinglist = this.service.shoppinglistByWeekday(weekDay);
+      //   }, 500);
+      // });
+    
+
   }
+  
 
 }

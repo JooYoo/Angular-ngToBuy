@@ -1,6 +1,9 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { TobuyserviceService } from '../../services/tobuyservice.service';
 import { Shoppinglist } from '../../models/shoppinglist';
+import { Router } from '@angular/router';
+import { MatSidenav } from '@angular/material';
+
 
 const SMALL_WIDTH_BREAKPOINT = 720;
 
@@ -11,22 +14,34 @@ const SMALL_WIDTH_BREAKPOINT = 720;
 })
 export class SidenavComponent implements OnInit {
 
-  public getShoppinglists: Shoppinglist[];
+  private mediaMatcher: MediaQueryList =
+    matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`);
 
-  private mediaMatcher: MediaQueryList = 
-  matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`);
+  shoppinglists: Shoppinglist[];
 
-  constructor(zone: NgZone, private tobuyservice: TobuyserviceService) {
-
-    this.getShoppinglists=tobuyservice.mockShoppinglists();
-
-    this.mediaMatcher.addListener(mql => 
+  constructor(
+    zone: NgZone,
+    private router: Router,
+    private tobuyservice: TobuyserviceService) {
+    this.mediaMatcher.addListener(mql =>
       zone.run(() => this.mediaMatcher = mql));
   }
 
-  
+  @ViewChild(MatSidenav) sidenav: MatSidenav;
 
   ngOnInit() {
+    this.shoppinglists = this.tobuyservice.mockShoppinglists();
+
+    if(this.shoppinglists.length >0){
+      this.router.navigate(['/tobuymanager',this.shoppinglists[0].weekDay])
+    }
+
+
+
+    this.router.events.subscribe(() => {
+      if (this.isScreenSmall())
+        this.sidenav.close();
+    })
   }
 
   isScreenSmall(): boolean {
