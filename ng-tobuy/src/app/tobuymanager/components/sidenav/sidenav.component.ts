@@ -32,8 +32,9 @@ export class SidenavComponent implements OnInit {
   ngOnInit() {
     this.shoppinglists = this.tobuyservice.mockShoppinglists();
 
-    if(this.shoppinglists.length >0){
-      this.router.navigate(['/tobuymanager',this.shoppinglists[0].weekDay])
+    if (this.shoppinglists.length > 0) {
+      var dateIndex = new Date().getDay() -1;
+      this.router.navigate(['/tobuymanager', this.shoppinglists[dateIndex].weekDay])
     }
 
     this.router.events.subscribe(() => {

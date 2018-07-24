@@ -1,25 +1,10 @@
-<!-- <mat-selection-list #tobuys>
-
-  <div *ngFor="let tobuy of displayTobuys">
-    <mat-list-option checkboxPosition="before">
-      {{tobuy.text}}
-    </mat-list-option>
-  </div>
-</mat-selection-list> -->
-
 <mat-list>
   <div>
-    <!-- <mat-list-item *ngFor="let tobuy of shoppingList.toBuys"> -->
-    <mat-list-item *ngFor="let tobuy of shoppingList.toBuys">
+    <mat-list-item *ngFor="let tobuy of shoppingList?.toBuys">
       <app-tobuy-item [tobuy]="tobuy"></app-tobuy-item>
     </mat-list-item>
   </div>
 </mat-list>
-
-
-
-
-
 
 
 <!-- <p>

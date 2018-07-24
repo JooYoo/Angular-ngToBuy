@@ -18,7 +18,7 @@ export class MainContentComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       let weekDay = params['weekDay'];
-      if (!weekDay) weekDay = 'Monday';
+      if (!weekDay) weekDay = this.service.getWeekDayNow();
       this.shoppinglist = null;
     });
 
