@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Tobuy } from '../models/tobuy';
 import { Shoppinglist } from '../models/shoppinglist';
+import { WeekDay } from '../../../../node_modules/@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +10,13 @@ export class TobuyserviceService {
 
   public shoppinglists: Shoppinglist[];
   public displaylist: Shoppinglist;
-  private tobuys: Tobuy[];
+  
   private nextId: number;
   private isCheck = false;
 
   constructor() {
 
-    this.tobuys = [
-      new Tobuy(0, "apple", false),
-      new Tobuy(1, "banana", true),
-      new Tobuy(2, "cake", false)
-    ]
+    
     this.nextId = 3;
 
     this.mockShoppinglists();
@@ -83,10 +80,6 @@ export class TobuyserviceService {
 
     return this.shoppinglists;
   }
-  // get all tobuy 
-  public getAllTobuy(): Tobuy[] {
-    return this.tobuys;
-  }
   // get current shoppinglist
   public getCurrentList():Shoppinglist{
     var currentWeekDay = this.getWeekDayNow();
@@ -112,16 +105,18 @@ export class TobuyserviceService {
    * remove item:
    * only display the items which are not match the id
    */
-  public removeItem(id: number): void {
-    this.tobuys = this.tobuys.filter(x => x.id != id);
+  public removeItem(id: number, currentDay: string): void {
+    var currentTobuys = this.shoppinglists.find(x=>x.weekDay == currentDay);
+    currentTobuys.toBuys = currentTobuys.toBuys.filter(x=>x.id != id);
+    // this.tobuys = this.tobuys.filter(x => x.id != id);
   }
 
   /*
    * check the 
    */
-  public isChecked(tobuy: Tobuy): void {
-    this.tobuys.find(x => x.id == tobuy.id).isDone == !this.isCheck;
-  }
+  // public isChecked(tobuy: Tobuy): void {
+  //   this.tobuys.find(x => x.id == tobuy.id).isDone == !this.isCheck;
+  // }
 
   // get the weekDay
   public getWeekDayNow(): string {
@@ -129,7 +124,7 @@ export class TobuyserviceService {
 
     const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
       'Thursday', 'Friday', 'Saturday'];
-
+      
     return dayOfWeek[date.getDay()];
   }
 }
