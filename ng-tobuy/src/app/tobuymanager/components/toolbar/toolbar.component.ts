@@ -8,7 +8,7 @@ import { TobuyserviceService } from '../../services/tobuyservice.service';
 })
 export class ToolbarComponent implements OnInit {
   @Output()toggleSidenav = new EventEmitter<void>();
-  constructor(private tobuyService: TobuyserviceService) { }
+  constructor(public tobuyService: TobuyserviceService) { }
   ngOnInit() {
   }
 }

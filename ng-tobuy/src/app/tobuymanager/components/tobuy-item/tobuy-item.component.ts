@@ -13,11 +13,11 @@ export class TobuyItemComponent implements OnInit {
   weekDay:string;
 
   @Input()
-  private tobuy: Tobuy;
+  public tobuy: Tobuy;
 
   constructor(
     private route: ActivatedRoute,
-    private tobuyservice: TobuyserviceService) { }
+    public tobuyservice: TobuyserviceService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
@@ -25,7 +25,7 @@ export class TobuyItemComponent implements OnInit {
     })
   }
 
-  private removeTobuy(): void {
+  public removeTobuy(): void {
     this.tobuyservice.removeItem(this.tobuy.id,this.weekDay);
   }
 
