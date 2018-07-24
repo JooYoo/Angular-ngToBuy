@@ -24,7 +24,6 @@ export class TobuyListComponent implements OnInit {
     this.route.params.subscribe(params=>{
       const weekDay=params['weekDay'];
       this.shoppingList = this.tobuyservice.shoppinglistByWeekday(weekDay);
-      console.log("In main-content:)");
     })
   }
 

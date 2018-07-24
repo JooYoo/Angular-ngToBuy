@@ -36,8 +36,6 @@ export class SidenavComponent implements OnInit {
       this.router.navigate(['/tobuymanager',this.shoppinglists[0].weekDay])
     }
 
-
-
     this.router.events.subscribe(() => {
       if (this.isScreenSmall())
         this.sidenav.close();

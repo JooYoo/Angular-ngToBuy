@@ -101,14 +101,7 @@ export class TobuyserviceService {
     return this.shoppinglists.find(x=>x.weekDay== weekday);
   }
   
-
-
-  //add new item to list
-  public addTobuy(text: string): void {
-    this.tobuys.push(new Tobuy(this.nextId, text, false));
-    this.nextId++;
-  }
-  // add new item to list of shoppinglists
+  // add new item to target list
   public addTobuyToList(text: string, currentDay: string): void {
     var currentTobuys = this.shoppinglists.find(x => x.weekDay == currentDay);
     currentTobuys.toBuys.push(new Tobuy(this.nextId, text, false));

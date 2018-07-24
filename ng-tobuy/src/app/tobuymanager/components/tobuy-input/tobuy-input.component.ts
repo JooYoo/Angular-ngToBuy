@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Tobuy } from '../../models/tobuy';
 import { TobuyserviceService } from '../../services/tobuyservice.service';
+import { ActivatedRoute } from '../../../../../node_modules/@angular/router';
+import { Shoppinglist } from '../../models/shoppinglist';
 
 @Component({
   selector: 'tobuy-input',
@@ -9,29 +11,25 @@ import { TobuyserviceService } from '../../services/tobuyservice.service';
 })
 export class TobuyInputComponent implements OnInit {
 
-  private _toBuyService: TobuyserviceService;
-  public todoText: string;
-  public displayTobuys:Tobuy[];
+   todoText: string;
+   weekDay:string;
+   shoppingList: Shoppinglist;
+
+   displayTobuys:Tobuy[];
   
-  constructor(tobuyservice:TobuyserviceService) { 
-    //tobuyservice.getAllTobuy();
-    this._toBuyService = tobuyservice;
+  constructor(
+    private route: ActivatedRoute,
+    private tobuyservice:TobuyserviceService) { 
   }
 
   ngOnInit() {
-    //this.displayTobuys = this._toBuyService.getAllTobuy();
+    this.route.params.subscribe(params=>{
+      this.weekDay= params['weekDay'];
+    })
   }
 
-  // public addTodo():void{
-  //   this._toBuyService.addTobuy(this.todoText);
-  //   console.log("add:" + this.todoText);
-  //   this.todoText = '';
-  // }
-
-  //todo: ??? how to pass value from component to another one 
   public addTodo():void{
-    this._toBuyService.addTobuyToList(this.todoText, this._toBuyService.getWeekDayNow());
-    console.log("add:" + this.todoText);
+    this.tobuyservice.addTobuyToList(this.todoText, this.weekDay);
     this.todoText = '';
   }
 
