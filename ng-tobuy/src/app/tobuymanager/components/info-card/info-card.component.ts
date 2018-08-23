@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TobuyserviceService } from '../../services/tobuyservice.service';
 
 @Component({
   selector: 'app-infocard',
@@ -7,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoCardComponent implements OnInit {
 
-  weekDayNow: string = createWeekDay();
+  weekDayNow:string;
 
-  constructor() { }
+  constructor(service:TobuyserviceService) { }
 
   ngOnInit() {
+    this.weekDayNow = createWeekDay();
   }
 
 }
