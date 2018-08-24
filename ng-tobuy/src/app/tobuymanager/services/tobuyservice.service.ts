@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Tobuy } from '../models/tobuy';
 import { Shoppinglist } from '../models/shoppinglist';
-import { WeekDay } from '../../../../node_modules/@angular/common';
+import { BehaviorSubject } from '../../../../node_modules/rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +13,19 @@ export class TobuyserviceService {
   public displaylist: Shoppinglist;
   
   private nextId: number;
-  private isCheck = false;
+
+  private messageSource = new BehaviorSubject<string>(this.getWeekDayNow());
+  currentWeekDay = this.messageSource.asObservable();
 
   constructor() {
-
     
     this.nextId = 3;
-
     this.mockShoppinglists();
+  }
+
+  // pass data between unrelated components
+  changeMessage(message: string){
+    this.messageSource.next(message)
   }
 
   // create mock shoppinglists

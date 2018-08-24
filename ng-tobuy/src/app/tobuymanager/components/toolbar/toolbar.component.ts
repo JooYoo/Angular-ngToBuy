@@ -7,8 +7,12 @@ import { TobuyserviceService } from '../../services/tobuyservice.service';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+
+  message:string
+
   @Output()toggleSidenav = new EventEmitter<void>();
   constructor(public tobuyService: TobuyserviceService) { }
   ngOnInit() {
+    this.tobuyService.currentWeekDay.subscribe(message=>this.message = message)
   }
 }

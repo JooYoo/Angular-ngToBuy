@@ -18,6 +18,7 @@ export class SidenavComponent implements OnInit {
     matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`);
 
   shoppinglists: Shoppinglist[];
+  message:string
 
   constructor(
     zone: NgZone,
@@ -41,10 +42,16 @@ export class SidenavComponent implements OnInit {
       if (this.isScreenSmall())
         this.sidenav.close();
     })
+
+    this.tobuyservice.currentWeekDay.subscribe(message=>this.message = message)
   }
 
   isScreenSmall(): boolean {
     return this.mediaMatcher.matches;
   }
 
+
+  changeDate(dateOnChange:string){
+    this.tobuyservice.changeMessage(dateOnChange)
+  }
 }

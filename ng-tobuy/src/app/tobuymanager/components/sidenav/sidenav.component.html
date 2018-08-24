@@ -6,7 +6,7 @@
 
     <mat-nav-list>
       <mat-list-item *ngFor="let shoppinglist of shoppinglists">
-        <a matLine [routerLink]="['/tobuymanager',shoppinglist.weekDay]">
+        <a matLine [routerLink]="['/tobuymanager',shoppinglist.weekDay]" (click)="changeDate(shoppinglist.weekDay)">
           {{shoppinglist.weekDay}}
         </a>
       </mat-list-item>
