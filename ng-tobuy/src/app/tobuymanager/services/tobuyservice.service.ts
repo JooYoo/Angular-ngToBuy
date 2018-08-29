@@ -13,6 +13,7 @@ export class TobuyserviceService {
   public displaylist: Shoppinglist;
   
   private nextId: number;
+  private isInit: boolean = true;
 
   private messageSource = new BehaviorSubject<string>(this.getWeekDayNow());
   currentWeekDay = this.messageSource.asObservable();
@@ -20,7 +21,13 @@ export class TobuyserviceService {
   constructor() {
     
     this.nextId = 3;
+
+    
     this.mockShoppinglists();
+    
+    
+
+    
   }
 
   // pass data between unrelated components
@@ -32,60 +39,53 @@ export class TobuyserviceService {
   public mockShoppinglists(): Shoppinglist[] {
 
     var mondayTobuys = [
-      new Tobuy(0, "apple", false),
+      new Tobuy(0, "eg. apple", false),
     ]
     var tuesdayTobuys = [
-      new Tobuy(0, "banana", true),
-      new Tobuy(1, "cake", false)
+      new Tobuy(0, "eg. banana", true),
     ]
     var wednesdayTobuys = [
-      new Tobuy(0, "desk", true),
-      new Tobuy(1, "egg", false),
-      new Tobuy(2, "fish", false)
+      new Tobuy(0, "eg. desk", true),
     ]
     var thursdayTobuys = [
-      new Tobuy(0, "glove", true),
-      new Tobuy(1, "hill", false),
-      new Tobuy(2, "iPhone", false),
-      new Tobuy(3, "jack", false)
+      new Tobuy(0, "eg. glove", true),
     ]
     var fridayTobuys = [
-      new Tobuy(0, "k", true),
-      new Tobuy(1, "l", false),
-      new Tobuy(2, "m", false),
-      new Tobuy(3, "n", false),
-      new Tobuy(4, "o", false)
+      new Tobuy(0, "eg. Smartisan", true),
     ]
     var saturdayTobuys = [
-      new Tobuy(0, "p", true),
-      new Tobuy(1, "q", false),
-      new Tobuy(2, "r", false),
-      new Tobuy(3, "s", false),
-      new Tobuy(4, "t", false),
-      new Tobuy(5, "u", false),
+      new Tobuy(0, "eg. Vivo", true),
     ]
     var sundayTobuys = [
-      new Tobuy(0, "v", true),
-      new Tobuy(1, "w", false),
-      new Tobuy(2, "x", false),
-      new Tobuy(3, "y", false),
-      new Tobuy(4, "z", false),
-      new Tobuy(5, "a", false),
-      new Tobuy(6, "b", false)
+      new Tobuy(0, "eg. Mi", true),
     ]
+ 
+    var test = new Shoppinglist(3, this.toLoad('3',thursdayTobuys), 'Thursday')
 
     this.shoppinglists = [
-      new Shoppinglist(0, mondayTobuys, 'Monday'),
-      new Shoppinglist(1, tuesdayTobuys, 'Tuesday'),
-      new Shoppinglist(2, wednesdayTobuys, 'Wednesday'),
-      new Shoppinglist(3, thursdayTobuys, 'Thursday'),
-      new Shoppinglist(4, fridayTobuys, 'Friday'),
-      new Shoppinglist(5, saturdayTobuys, 'Saturday'),
-      new Shoppinglist(6, sundayTobuys, 'Sunday'),
+      new Shoppinglist(0, this.toLoad('0',mondayTobuys), 'Monday'),
+      new Shoppinglist(1, this.toLoad('1',tuesdayTobuys), 'Tuesday'),
+      new Shoppinglist(2, this.toLoad('2',wednesdayTobuys), 'Wednesday'),
+      new Shoppinglist(3, this.toLoad('3',thursdayTobuys), 'Thursday'),
+      new Shoppinglist(4, this.toLoad('4',fridayTobuys), 'Friday'),
+      new Shoppinglist(5, this.toLoad('5',saturdayTobuys), 'Saturday'),
+      new Shoppinglist(6, this.toLoad('6',sundayTobuys), 'Sunday'),
     ]
 
     return this.shoppinglists;
   }
+
+  // add new item to target list
+  public addTobuyToList(text: string, currentDay: string): void {
+    var currentTobuys = this.shoppinglists.find(x => x.weekDay == currentDay);
+    currentTobuys.toBuys.push(new Tobuy(this.nextId, text, false));
+    
+    // save Data
+    this.toSave(currentTobuys);
+
+    this.nextId++;
+  }
+
   // get current shoppinglist
   public getCurrentList():Shoppinglist{
     var currentWeekDay = this.getWeekDayNow();
@@ -100,12 +100,7 @@ export class TobuyserviceService {
     return this.shoppinglists.find(x=>x.weekDay== weekday);
   }
   
-  // add new item to target list
-  public addTobuyToList(text: string, currentDay: string): void {
-    var currentTobuys = this.shoppinglists.find(x => x.weekDay == currentDay);
-    currentTobuys.toBuys.push(new Tobuy(this.nextId, text, false));
-    this.nextId++;
-  }
+  
 
   /*
    * remove item:
@@ -114,23 +109,36 @@ export class TobuyserviceService {
   public removeItem(id: number, currentDay: string): void {
     var currentTobuys = this.shoppinglists.find(x=>x.weekDay == currentDay);
     currentTobuys.toBuys = currentTobuys.toBuys.filter(x=>x.id != id);
-    // this.tobuys = this.tobuys.filter(x => x.id != id);
   }
-
-  /*
-   * check the 
-   */
-  // public isChecked(tobuy: Tobuy): void {
-  //   this.tobuys.find(x => x.id == tobuy.id).isDone == !this.isCheck;
-  // }
 
   // get the weekDay
   public getWeekDayNow(): string {
     var date = new Date();
-
-    const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+    const dayOfWeek = [ 'Sunday','Monday', 'Tuesday', 'Wednesday',
       'Thursday', 'Friday', 'Saturday'];
-
     return dayOfWeek[date.getDay()];
+  }
+
+  // get weekDay name
+  private getWeekDayName(dayIndex:number): string{
+    const dayOfWeek = [ 'Monday', 'Tuesday', 'Wednesday',
+      'Thursday', 'Friday', 'Saturday','Sunday'];
+
+      return dayOfWeek[dayIndex];
+  }
+
+  // to save data
+  public toSave(shoppingList:Shoppinglist){
+    localStorage.setItem(shoppingList.id.toString(),JSON.stringify(shoppingList));
+  }
+
+  public toLoad(key:string, initList: Tobuy[]):any{
+    var shoppingList = JSON.parse(localStorage.getItem(key));
+
+    if(shoppingList === null){
+      return initList
+    }
+
+    return shoppingList.toBuys;
   }
 }
