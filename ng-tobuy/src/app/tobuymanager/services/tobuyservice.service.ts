@@ -25,9 +25,6 @@ export class TobuyserviceService {
     
     this.mockShoppinglists();
     
-    
-
-    
   }
 
   // pass data between unrelated components
@@ -42,13 +39,13 @@ export class TobuyserviceService {
       new Tobuy(0, "eg. apple", false),
     ]
     var tuesdayTobuys = [
-      new Tobuy(0, "eg. banana", true),
+      new Tobuy(0, "eg. Huawei", true),
     ]
     var wednesdayTobuys = [
-      new Tobuy(0, "eg. desk", true),
+      new Tobuy(0, "eg. Oppo", true),
     ]
     var thursdayTobuys = [
-      new Tobuy(0, "eg. glove", true),
+      new Tobuy(0, "eg. Honor", true),
     ]
     var fridayTobuys = [
       new Tobuy(0, "eg. Smartisan", true),
@@ -86,11 +83,30 @@ export class TobuyserviceService {
     this.nextId++;
   }
 
+    /*
+   * remove item:
+   * return the items which not included selected id
+   */
+  public removeItem(id: number, currentDay: string): void {
+    var currentTobuys = this.shoppinglists.find(x=>x.weekDay == currentDay);
+    currentTobuys.toBuys = currentTobuys.toBuys.filter(x=>x.id != id);
+    console.log("Filter Result:"+currentTobuys.toBuys)
+    // save result
+    this.toSave(currentTobuys);
+  }
+
+
+  checkItem(){
+    console.log("I'm checking!!!")
+  }
+
+
   // get current shoppinglist
   public getCurrentList():Shoppinglist{
     var currentWeekDay = this.getWeekDayNow();
     return this.shoppinglists.find(x=>x.weekDay == currentWeekDay);
   }
+
   // get target shoppinglist
   public getTargetShoppingList(targetWeekDay:string):Shoppinglist{
     return this.shoppinglists.find(x=>x.weekDay == targetWeekDay);
@@ -100,18 +116,10 @@ export class TobuyserviceService {
     return this.shoppinglists.find(x=>x.weekDay== weekday);
   }
   
-  
 
-  /*
-   * remove item:
-   * only display the items which are not match the id
-   */
-  public removeItem(id: number, currentDay: string): void {
-    var currentTobuys = this.shoppinglists.find(x=>x.weekDay == currentDay);
-    currentTobuys.toBuys = currentTobuys.toBuys.filter(x=>x.id != id);
-  }
 
-  // get the weekDay
+
+  // get today's weekDay 
   public getWeekDayNow(): string {
     var date = new Date();
     const dayOfWeek = [ 'Sunday','Monday', 'Tuesday', 'Wednesday',
@@ -119,19 +127,15 @@ export class TobuyserviceService {
     return dayOfWeek[date.getDay()];
   }
 
-  // get weekDay name
-  private getWeekDayName(dayIndex:number): string{
-    const dayOfWeek = [ 'Monday', 'Tuesday', 'Wednesday',
-      'Thursday', 'Friday', 'Saturday','Sunday'];
-
-      return dayOfWeek[dayIndex];
-  }
-
   // to save data
   public toSave(shoppingList:Shoppinglist){
     localStorage.setItem(shoppingList.id.toString(),JSON.stringify(shoppingList));
   }
 
+  /*
+   * to load data
+   * if the list is empty, return initial data
+   */
   public toLoad(key:string, initList: Tobuy[]):any{
     var shoppingList = JSON.parse(localStorage.getItem(key));
 
@@ -140,5 +144,16 @@ export class TobuyserviceService {
     }
 
     return shoppingList.toBuys;
+  }
+
+
+
+
+   // get weekDay name
+   private getWeekDayName(dayIndex:number): string{
+    const dayOfWeek = [ 'Monday', 'Tuesday', 'Wednesday',
+      'Thursday', 'Friday', 'Saturday','Sunday'];
+
+      return dayOfWeek[dayIndex];
   }
 }
