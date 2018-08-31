@@ -23,10 +23,16 @@ export class TobuyItemComponent implements OnInit {
     this.route.params.subscribe(params=>{
       this.weekDay = params['weekDay'];
     })
+    
   }
 
   public removeTobuy(): void {
     this.tobuyservice.removeItem(this.tobuy.id,this.weekDay);
+  }
+
+  public checkTobuy():void{
+
+    this.tobuyservice.checkItem(this.tobuy, this.weekDay);
   }
 
 }

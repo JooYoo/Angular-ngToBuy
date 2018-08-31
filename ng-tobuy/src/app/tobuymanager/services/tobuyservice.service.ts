@@ -88,16 +88,30 @@ export class TobuyserviceService {
    * return the items which not included selected id
    */
   public removeItem(id: number, currentDay: string): void {
-    var currentTobuys = this.shoppinglists.find(x=>x.weekDay == currentDay);
-    currentTobuys.toBuys = currentTobuys.toBuys.filter(x=>x.id != id);
+    var currentTobuys = this.shoppinglists.find(x=>x.weekDay == currentDay)
+    currentTobuys.toBuys = currentTobuys.toBuys.filter(x=>x.id != id)
     console.log("Filter Result:"+currentTobuys.toBuys)
     // save result
-    this.toSave(currentTobuys);
+    this.toSave(currentTobuys)
   }
 
 
-  checkItem(){
-    console.log("I'm checking!!!")
+  public checkItem(tobuy:Tobuy, currentDay: string){
+    //console.log("init status:" + tobuy.isDone)
+    //change the check status
+    //tobuy.isDone = !tobuy.isDone
+    
+    
+
+     //var switcher = tobuy.isDone
+      // tobuy.isDone = !tobuy.isDone
+     // console.log(tobuy.isDone)
+
+
+     // get current shoppinglist
+     var currentShoppinglist = this.shoppinglists.find(x=>x.weekDay==currentDay)
+     // save the result
+     this.toSave(currentShoppinglist)
   }
 
 
@@ -116,7 +130,6 @@ export class TobuyserviceService {
     return this.shoppinglists.find(x=>x.weekDay== weekday);
   }
   
-
 
 
   // get today's weekDay 
