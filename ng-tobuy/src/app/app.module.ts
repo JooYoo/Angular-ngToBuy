@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
 import { CommonModule, APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: 'tobuymanager', loadChildren: './tobuymanager/tobuymanager.module#TobuymanagerModule' },
@@ -21,7 +23,8 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },

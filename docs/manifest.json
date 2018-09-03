@@ -1,0 +1,31 @@
+{
+  "name": "ToBuy Pro",
+  "short_name": "ToBuy Pro",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "assets/img/icon-60.png",
+      "sizes": "60x60",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icon-114.png",
+      "sizes": "114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icon-200.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ]
+}
