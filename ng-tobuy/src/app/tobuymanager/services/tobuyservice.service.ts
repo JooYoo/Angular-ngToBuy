@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Tobuy } from '../models/tobuy';
 import { Shoppinglist } from '../models/shoppinglist';
 import { BehaviorSubject } from '../../../../node_modules/rxjs';
+import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Injectable({
@@ -104,14 +105,21 @@ export class TobuyserviceService {
     
 
      //var switcher = tobuy.isDone
-      // tobuy.isDone = !tobuy.isDone
+       tobuy.isDone = !tobuy.isDone
      // console.log(tobuy.isDone)
 
 
      // get current shoppinglist
      var currentShoppinglist = this.shoppinglists.find(x=>x.weekDay==currentDay)
+
+    
+    // currentShoppinglist.toBuys.forEach(function(element){
+    //   element.isDone=!element.isDone
+    // })
+
      // save the result
-     this.toSave(currentShoppinglist)
+    //  this.toSave(currentShoppinglist)
+     localStorage.setItem(currentShoppinglist.id.toString(),JSON.stringify(currentShoppinglist));
   }
 
 

@@ -23,6 +23,8 @@ export class TobuyItemComponent implements OnInit {
     this.route.params.subscribe(params=>{
       this.weekDay = params['weekDay'];
     })
+
+    //this.tobuy.isDone = true
     
   }
 

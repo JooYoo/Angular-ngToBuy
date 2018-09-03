@@ -1,4 +1,5 @@
-<mat-checkbox [(ngModel)]="tobuy.isDone" (click)="checkTobuy()">{{tobuy.text}}</mat-checkbox>
+<mat-checkbox  [checked]="tobuy.isDone" 
+(change)="checkTobuy()">{{tobuy.text}}</mat-checkbox>
 <button id="removeBtn" 
         (click)="removeTobuy()"
         mat-button 
