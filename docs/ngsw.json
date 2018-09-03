@@ -1,0 +1,97 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/0.db251ee91dd6554facad.js",
+        "/index.html",
+        "/main.594705e4302a3a43f894.js",
+        "/polyfills.9a5f6d04e0781d28c53e.js",
+        "/runtime.1fe59c843ba33058f0c0.js",
+        "/styles.26e75e15c8eee05f8188.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/apple-icon-114x114.png",
+        "/assets/img/apple-icon-120x120.png",
+        "/assets/img/apple-icon-144x144.png",
+        "/assets/img/apple-icon-152x152.png",
+        "/assets/img/apple-icon-180x180.png",
+        "/assets/img/apple-icon-57x57.png",
+        "/assets/img/apple-icon-60x60.png",
+        "/assets/img/apple-icon-72x72.png",
+        "/assets/img/apple-icon-76x76.png",
+        "/assets/img/icon-114.png",
+        "/assets/img/icon-152.png",
+        "/assets/img/icon-200.png",
+        "/assets/img/icon-60.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/0.db251ee91dd6554facad.js": "16db314cf9ec1dd80c18d07ad8b4fb96818650af",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/img/apple-icon-114x114.png": "40c15a7a4e5e0b55d4ab606d4763bf41e51ed2ab",
+    "/assets/img/apple-icon-120x120.png": "28ec600e364f0c2b79965d1b5160cd64954f21ca",
+    "/assets/img/apple-icon-144x144.png": "c0a2efbef58bc67411d3c199ea7dd0254add7ab6",
+    "/assets/img/apple-icon-152x152.png": "c6332b669cdc3a8eeb0444f740319106fe75999d",
+    "/assets/img/apple-icon-180x180.png": "bcda0b59fb092c4453cfd8812cc6c13842d6e545",
+    "/assets/img/apple-icon-57x57.png": "bea17580a89caa9ac1cb0a12c46fa1d7f71e61ca",
+    "/assets/img/apple-icon-60x60.png": "18ef5a43ac4a1225a60a9e1d96fa23468736c80c",
+    "/assets/img/apple-icon-72x72.png": "caf9b354761dda5af4c366f980c3452a7d1041cd",
+    "/assets/img/apple-icon-76x76.png": "b0c890e4b0bffbcd3260e96c505d680d49d30d0f",
+    "/assets/img/icon-114.png": "125e4a8c22933fe1d92f7321796fb4c026c108c0",
+    "/assets/img/icon-152.png": "c6332b669cdc3a8eeb0444f740319106fe75999d",
+    "/assets/img/icon-200.png": "e9eb3e1c8b718b05fad79fdab700311cd7f72b00",
+    "/assets/img/icon-60.png": "18ef5a43ac4a1225a60a9e1d96fa23468736c80c",
+    "/index.html": "d85e639fab8fe222db481b6b9cff769c4f557ee9",
+    "/main.594705e4302a3a43f894.js": "8aec151649b7beb885bd854dd3a169f535a9bdea",
+    "/polyfills.9a5f6d04e0781d28c53e.js": "2eae7edf54a88cf84ef080d0abee952969311584",
+    "/runtime.1fe59c843ba33058f0c0.js": "41d5fb7495c159622d287060176e1d05af79d845",
+    "/styles.26e75e15c8eee05f8188.css": "62fcc0f5030adaea3683df009604e1a5d4ee03ce"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
