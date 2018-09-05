@@ -25,7 +25,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
