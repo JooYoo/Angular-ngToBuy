@@ -7,14 +7,16 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/0.91ec23d9a0a7c4d05e23.js",
+        "/0.db251ee91dd6554facad.js",
         "/index.html",
-        "/main.3cabfe01ca086ad3d63f.js",
+        "/main.85e420d475a0757fb649.js",
         "/polyfills.9a5f6d04e0781d28c53e.js",
-        "/runtime.092e8014572dffb857bf.js",
+        "/runtime.1fe59c843ba33058f0c0.js",
         "/styles.26e75e15c8eee05f8188.css"
       ],
-      "patterns": []
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/icon\\?family=Material\\+Icons"
+      ]
     },
     {
       "name": "assets",
@@ -48,7 +50,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/0.91ec23d9a0a7c4d05e23.js": "16db314cf9ec1dd80c18d07ad8b4fb96818650af",
+    "/0.db251ee91dd6554facad.js": "16db314cf9ec1dd80c18d07ad8b4fb96818650af",
     "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -70,10 +72,10 @@
     "/assets/img/icon-152.png": "c6332b669cdc3a8eeb0444f740319106fe75999d",
     "/assets/img/icon-200.png": "e9eb3e1c8b718b05fad79fdab700311cd7f72b00",
     "/assets/img/icon-60.png": "18ef5a43ac4a1225a60a9e1d96fa23468736c80c",
-    "/index.html": "5a96903116409bdb06f12262517efe3862509833",
-    "/main.3cabfe01ca086ad3d63f.js": "c3ad193b86fadf01bb49f90505f70caad5c9ad0d",
+    "/index.html": "8bc2c03fd225542c79ff91e571db1d14c2592fe1",
+    "/main.85e420d475a0757fb649.js": "c3ad193b86fadf01bb49f90505f70caad5c9ad0d",
     "/polyfills.9a5f6d04e0781d28c53e.js": "2eae7edf54a88cf84ef080d0abee952969311584",
-    "/runtime.092e8014572dffb857bf.js": "6ca78e9d8c2d7eeae60f960a0fafe6be59070f3e",
+    "/runtime.1fe59c843ba33058f0c0.js": "41d5fb7495c159622d287060176e1d05af79d845",
     "/styles.26e75e15c8eee05f8188.css": "62fcc0f5030adaea3683df009604e1a5d4ee03ce"
   },
   "navigationUrls": [
