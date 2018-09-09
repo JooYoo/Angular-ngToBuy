@@ -34,7 +34,13 @@ export class SidenavComponent implements OnInit {
     this.shoppinglists = this.tobuyservice.mockShoppinglists();
 
     if (this.shoppinglists.length > 0) {
-      var dateIndex = new Date().getDay() -1;
+      // Sunday index '0'
+      var dateIndex
+      if(new Date().getDay()==0){
+        dateIndex = 6
+      }else{
+        dateIndex = new Date().getDay() -1;
+      }
       this.router.navigate(['/tobuymanager', this.shoppinglists[dateIndex].weekDay])
     }
 
